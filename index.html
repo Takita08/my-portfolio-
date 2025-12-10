@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Portfolio</title>
 
-    <!-- Fonts: Inter for modern, clean look -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- External Libraries (CDNs) -->
+    <!-- CDNs -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -21,11 +21,11 @@
         /* --- 1. PREMIUM VARIABLES & RESET --- */
         :root {
             --primary: #111111;
-            /* Charcoal - Modern, Serious */
+            /* Charcoal */
             --secondary: #222222;
             /* Body text */
             --action: #2D6CDF;
-            /* Action Blue - Intelligence */
+            /* Action Blue */
             --bg-light: #F7F7F7;
             /* Card Backgrounds */
             --border: #E6E6E6;
@@ -41,7 +41,6 @@
             background-color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
-            /* Prevent horizontal scroll */
         }
 
         h1,
@@ -66,7 +65,7 @@
             color: #1a4fa0;
         }
 
-        /* --- 2. SPACING RULES (Premium Feel) --- */
+        /* --- 2. LAYOUT & SPACING --- */
         .section-padding {
             padding-top: 96px;
             padding-bottom: 96px;
@@ -76,21 +75,15 @@
             margin-bottom: 48px;
         }
 
-        .card-spacing {
-            padding: 24px;
-        }
-
-        /* Max width container override for 960px reading feel */
         .container-premium {
             max-width: 960px;
             margin: 0 auto;
             padding: 0 15px;
         }
 
-        /* --- 3. TYPOGRAPHY HIERARCHY --- */
+        /* --- 3. TYPOGRAPHY --- */
         .headline-hero {
             font-size: 52px;
-            /* 40-52px */
             line-height: 1.2;
             color: var(--primary);
             margin-bottom: 24px;
@@ -98,8 +91,7 @@
 
         .subheadline {
             font-size: 20px;
-            color: #555555;
-            /* Muted dark grey */
+            color: #555;
             font-weight: 500;
             margin-bottom: 32px;
             display: block;
@@ -115,13 +107,10 @@
 
         .section-title {
             font-size: 32px;
-            position: relative;
             margin-bottom: 48px;
         }
 
         /* --- 4. COMPONENTS --- */
-
-        /* Fixed CTA Button */
         .btn-premium {
             display: inline-block;
             background-color: var(--action);
@@ -141,7 +130,7 @@
             color: var(--white);
         }
 
-        /* Navbar Hotspot #1 */
+        /* Navbar */
         .navbar-premium {
             padding: 24px 0;
             position: absolute;
@@ -170,44 +159,36 @@
             font-weight: 600;
         }
 
-        /* Skill Grid (Square Icons) */
+        /* Skills (Square Grid) */
         .skill-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 24px;
-            /* 32px logic */
         }
 
         .skill-item {
             display: flex;
             align-items: center;
             background: var(--white);
-            /* Minimalist - no background card, just alignment */
         }
 
-        /* The Custom Icon Shape */
         .premium-icon-box {
             width: 48px;
-            /* Container size */
             height: 48px;
             background: var(--bg-light);
             border: 1px solid var(--border);
             border-radius: 8px;
-            /* 4px corner radius adjusted for size */
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 16px;
-            /* 16px spacing */
             flex-shrink: 0;
             transition: border-color 0.3s ease;
         }
 
         .premium-icon-box i {
             font-size: 18px;
-            /* ~28-32px visual weight */
             color: var(--primary);
-            /* Black or Primary */
         }
 
         .skill-item:hover .premium-icon-box {
@@ -224,30 +205,35 @@
             color: var(--primary);
         }
 
-        /* --- 5. ANIMATIONS --- */
+        /* --- 5. ANIMATIONS (INTEGRATED FIX) --- */
+        /* By default, elements are VISIBLE. JS will hide them to animate. */
+        /* This prevents blank screen if JS fails. */
         .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        .fade-up.visible {
+        /* Class added by JS to trigger animation */
+        .js-animate-init {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .js-animate-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- 6. EXTRA SECTIONS (Carousel/Lightbox) --- */
+        /* Project Card */
         .project-card {
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
         }
 
         .project-img {
@@ -257,36 +243,17 @@
             align-items: center;
             justify-content: center;
             color: var(--muted);
-            overflow: hidden;
-        }
-
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .project-body {
             padding: 24px;
-        }
-
-        .project-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .project-desc {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 16px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAV (Visual Hotspot #1) -->
+    <!-- NAV -->
     <nav class="navbar navbar-expand-lg navbar-premium">
         <div class="container-premium w-100 d-flex justify-content-between">
             <a class="navbar-brand" href="#">PORTFOLIO.</a>
@@ -299,143 +266,102 @@
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
                     <li class="nav-item"><a class="nav-link active-cta" href="#contact">Contact</a></li>
-                    <!-- Hotspot #3 -->
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="section-padding" style="padding-top: 180px; min-height: 80vh; display: flex; align-items: center;">
         <div class="container-premium fade-up">
             <div class="row">
                 <div class="col-lg-8">
-                    <!-- Text Hierarchy -->
                     <span class="subheadline">Aspiring Engineer · Backend Developer · Curious Builder</span>
                     <h1 class="headline-hero">Building digital products, brands, and experiences.</h1>
                     <p class="intro-text">
                         I specialize in simplifying complex systems into clean, efficient code.
                         Focused on modern web technologies and building products that matter.
                     </p>
-
-                    <!-- Fixed CTA Button -->
                     <a href="#projects" class="btn-premium">View My Work</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS SECTION (2-row grid) -->
+    <!-- SKILLS -->
     <section id="skills" class="section-padding" style="background-color: #FAFAFA;">
         <div class="container-premium">
             <h2 class="section-title fade-up">Technical Expertise</h2>
-
             <div class="skill-grid fade-up">
-                <!-- Skill 1 -->
                 <div class="skill-item">
-                    <div class="premium-icon-box">
-                        <i class="fab fa-python"></i> <!-- Line icon style -->
-                    </div>
-                    <span class="skill-name">Python</span>
+                    <div class="premium-icon-box"><i class="fab fa-python"></i></div><span
+                        class="skill-name">Python</span>
                 </div>
-                <!-- Skill 2 -->
                 <div class="skill-item">
-                    <div class="premium-icon-box">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <span class="skill-name">Web Development</span>
+                    <div class="premium-icon-box"><i class="fas fa-code"></i></div><span class="skill-name">Web
+                        Development</span>
                 </div>
-                <!-- Skill 3 -->
                 <div class="skill-item">
-                    <div class="premium-icon-box">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <span class="skill-name">Data Engineering</span>
+                    <div class="premium-icon-box"><i class="fas fa-database"></i></div><span class="skill-name">Data
+                        Engineering</span>
                 </div>
-                <!-- Skill 4 -->
                 <div class="skill-item">
-                    <div class="premium-icon-box">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <span class="skill-name">UI/UX Design</span>
+                    <div class="premium-icon-box"><i class="fas fa-layer-group"></i></div><span class="skill-name">UI/UX
+                        Design</span>
                 </div>
-                <!-- Skill 5 -->
                 <div class="skill-item">
-                    <div class="premium-icon-box">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <span class="skill-name">Cloud Infrastructure</span>
+                    <div class="premium-icon-box"><i class="fas fa-cloud"></i></div><span class="skill-name">Cloud
+                        Infrastructure</span>
                 </div>
-                <!-- Skill 6 -->
                 <div class="skill-item">
-                    <div class="premium-icon-box">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <span class="skill-name">Machine Learning</span>
+                    <div class="premium-icon-box"><i class="fas fa-brain"></i></div><span class="skill-name">Machine
+                        Learning</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WORK SECTION (Carousel + Lightbox) -->
+    <!-- PROJECTS -->
     <section id="projects" class="section-padding">
         <div class="container-premium">
             <h2 class="section-title fade-up">Selected Works</h2>
-
-            <!-- Owl Carousel for Projects -->
             <div class="owl-carousel owl-theme fade-up">
-
-                <!-- Project 1 -->
                 <div class="item">
                     <div class="project-card">
                         <a href="https://via.placeholder.com/800x600?text=Project+1" data-lightbox="portfolio"
                             data-title="E-Commerce Platform">
-                            <div class="project-img">
-                                <i class="fas fa-shopping-bag fa-3x" style="color:#ddd;"></i>
-                            </div>
+                            <div class="project-img"><i class="fas fa-shopping-bag fa-3x"></i></div>
                         </a>
                         <div class="project-body">
-                            <div class="project-title">E-Commerce Platform</div>
-                            <p class="project-desc">A full-featured shopping experience with Stripe integration.</p>
-                            <a href="#" style="font-size: 14px; font-weight: 600;">View Case Study &rarr;</a>
+                            <div class="project-title">E-Commerce</div>
+                            <p style="font-size:14px;color:#666">Full-featured shopping experience.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
                 <div class="item">
                     <div class="project-card">
                         <a href="https://via.placeholder.com/800x600?text=Project+2" data-lightbox="portfolio"
-                            data-title="Analytics Dashboard">
-                            <div class="project-img">
-                                <i class="fas fa-chart-line fa-3x" style="color:#ddd;"></i>
-                            </div>
+                            data-title="Dashboard">
+                            <div class="project-img"><i class="fas fa-chart-line fa-3x"></i></div>
                         </a>
                         <div class="project-body">
-                            <div class="project-title">Analytics Dashboard</div>
-                            <p class="project-desc">Real-time data visualization using D3.js and React.</p>
-                            <a href="#" style="font-size: 14px; font-weight: 600;">View Case Study &rarr;</a>
+                            <div class="project-title">Dashboard</div>
+                            <p style="font-size:14px;color:#666">Real-time data visualization.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 3 -->
                 <div class="item">
                     <div class="project-card">
                         <a href="https://via.placeholder.com/800x600?text=Project+3" data-lightbox="portfolio"
                             data-title="Finance App">
-                            <div class="project-img">
-                                <i class="fas fa-wallet fa-3x" style="color:#ddd;"></i>
-                            </div>
+                            <div class="project-img"><i class="fas fa-wallet fa-3x"></i></div>
                         </a>
                         <div class="project-body">
                             <div class="project-title">Finance App</div>
-                            <p class="project-desc">Personal finance tracker with automated categorization.</p>
-                            <a href="#" style="font-size: 14px; font-weight: 600;">View Case Study &rarr;</a>
+                            <p style="font-size:14px;color:#666">Personal finance tracker.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -444,15 +370,12 @@
     <section id="contact" class="section-padding" style="background-color: var(--primary); color: #fff;">
         <div class="container-premium text-center fade-up">
             <h2 style="color: #fff; margin-bottom: 24px;">Let's build something great.</h2>
-            <p style="color: #888; margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Currently available for freelance projects and open to full-time opportunities.
-            </p>
             <a href="mailto:hello@example.com" class="btn-premium"
                 style="background-color: #fff; color: var(--primary);">Get in Touch</a>
         </div>
     </section>
 
-    <!-- SCRIPTS -->
+    <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -460,48 +383,34 @@
 
     <script>
         $(document).ready(function () {
-            // Initialize Owl Carousel
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 24,
-                nav: false,
-                dots: true,
-                responsive: {
-                    0: { items: 1 },
-                    600: { items: 2 },
-                    1000: { items: 3 }
-                }
-            });
+            // 1. SAFE ANIMATION LOGIC (Prevent Blank Screen)
+            // We apply the "hidden" state ONLY if JS runs successfully.
+            $('.fade-up').addClass('js-animate-init');
 
-            // Intersection Observer for Fade Up Animation
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            // 2. Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Only animate once
+                        entry.target.classList.remove('js-animate-init');
+                        entry.target.classList.add('js-animate-visible');
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
-            const fadeElements = document.querySelectorAll('.fade-up');
-            fadeElements.forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-            // Smooth Scroll for Anchors
-            $('a[href^="#"]').on('click', function (event) {
-                var target = $(this.getAttribute('href'));
-                if (target.length) {
-                    event.preventDefault();
-                    $('html, body').stop().animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                }
+            // 3. Carousel
+            $('.owl-carousel').owlCarousel({
+                loop: true, margin: 24, nav: false, dots: true,
+                responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 3 } }
             });
+
+            // 4. Smooth Scroll
+            $('a[href^="#"]').on('click', function (e) {
+                var t = $(this.getAttribute('href'));
+                if (t.length) { e.preventDefault(); $('html, body').stop().animate({ scrollTop: t.offset().top }, 1000); }
+            });
+            console.log("Premium Integrated Loaded");
         });
     </script>
 </body>
